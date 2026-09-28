@@ -1,61 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <base href="https://shawnsingh.me/">
   <meta charset="UTF-8" />
+  <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'dark');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#111113" />
   <title>Status — Shawn Singh</title>
   <meta name="description" content="Live status of shawnsingh.me and the Shawn AI chat, API and MCP server." />
-  <link rel="canonical" href="https://status.shawnsingh.me/" />
-  <link rel="icon" type="image/svg+xml" href="https://shawnsingh.me/shawnlogo.svg" />
+
+
+
   <style>
-    :root {
-      --black: #f5f5f7;
-      --mid: #98989d;
-      --light: #636366;
-      --border: #3a3a3c;
-      --bg: #111113;
-      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    .about-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 56px 0;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--black); font: 1rem/1.5 var(--sans); }
-    main { width: min(720px, calc(100% - 40px)); margin: 0 auto; padding: 72px 0 96px; }
-    a { color: inherit; }
-    .eyebrow { margin: 0 0 8px; font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--light); }
-    h1 { margin: 0 0 8px; font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: -.03em; line-height: 1.05; }
-    .sub { margin: 0 0 40px; color: var(--mid); }
-    .banner { margin: 0 0 8px; font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 700; }
-    .meta { margin: 0 0 32px; font-size: .9rem; color: var(--mid); }
-    ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
-    li { display: flex; align-items: baseline; gap: 12px; padding: 18px 0; border-bottom: 1px solid var(--border); }
-    b { font-weight: 600; }
-    small { display: block; color: var(--mid); font-size: .85rem; }
-    .st { margin-left: auto; white-space: nowrap; font-size: .9rem; color: var(--mid); }
+
+    .about-section {
+      padding: 72px 0;
+    }
+
+    .about-col-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 64px;
+    }
+
+    .about-col-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--light);
+      padding-top: 6px;
+    }
+
+    .about-bio-large {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--black);
+      max-width: 28ch;
+      margin-bottom: 32px;
+    }
+
+    .resume-cta {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .resume-cta p {
+      font-size: 0.9rem;
+      color: var(--mid);
+      margin: 0;
+      max-width: none;
+    }
+
+    @media (max-width: 900px) {
+      .about-col-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+    .status-banner { font-family: var(--serif); font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 700; color: var(--black); margin: 0 0 8px; }
+    .status-meta { font-size: 0.9rem; color: var(--mid); margin: 0 0 32px; }
+    .status-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
+    .status-list li { display: flex; align-items: baseline; gap: 12px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .status-list b { font-weight: 600; color: var(--black); }
+    .status-list small { display: block; color: var(--mid); font-size: 0.85rem; }
+    .status-list .st { margin-left: auto; white-space: nowrap; font-size: 0.9rem; color: var(--mid); }
     .dot { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--light); transform: translateY(-1px); }
     .up .dot { background: #1f9d55; }
     .slow .dot { background: #d99a16; }
     .down .dot { background: #d6453d; }
     .down .st { color: #d6453d; }
   </style>
+  <script type="module" crossorigin src="/assets/styles-GID8uTDy.js"></script>
+  <script type="module" crossorigin src="/assets/script-C-RUBg2h.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-D4DcCPTH.css?v=3">
 </head>
 <body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav scrolled" data-always-scrolled role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" style="display:flex;align-items:center;gap:10px;">
+        <svg width="24" height="24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;">
+          <defs>
+            <radialGradient id="sg" cx="40%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#d9a8f5"/>
+              <stop offset="55%" stop-color="#b36fd9"/>
+              <stop offset="100%" stop-color="#9a4fc4"/>
+            </radialGradient>
+          </defs>
+          <circle cx="50" cy="50" r="50" fill="url(#sg)"/>
+          <text x="50" y="67" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif" font-size="52" font-weight="600" fill="white" letter-spacing="-1">S</text>
+        </svg>
+        Shawn Singh
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="mailto:shawn@visuallyrepresented.co">Contact</a></li>
+      </ul>
+
+      <div class="nav__right" style="display:flex;align-items:center;gap:8px;">
+      <button class="nav__theme-toggle" aria-label="Switch to dark mode">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="about-hero" style="padding-top: var(--nav-height); background: var(--bg-off); border-bottom: 1px solid var(--border);">
+    <div class="about-hero__inner">
+      <div data-reveal>
+        <p class="about-eyebrow">Status</p>
+        <h1 class="about-title">Is it up?</h1>
+      </div>
+      <div data-reveal data-reveal-delay="80">
+        <p class="hero__sub" style="font-size: 1.05rem;">Live checks of the site and Shawn AI,<br />run from your browser every minute.</p>
+      </div>
+    </div>
+  </header>
   <main>
-    <p class="eyebrow">Status</p>
-    <h1>Is it up?</h1>
-    <p class="sub">Live checks of the site and Shawn AI, run from your browser every minute. <a href="https://shawnsingh.me/">shawnsingh.me</a></p>
-    <p class="banner" id="banner">Checking…</p>
-    <p class="meta" id="meta">&nbsp;</p>
-    <ul id="list" aria-live="polite"></ul>
+    <section class="about-section">
+      <div class="container">
+        <div class="about-col-grid" data-reveal>
+          <p class="about-col-label">Services</p>
+          <div aria-live="polite">
+            <p class="status-banner" id="banner">Checking…</p>
+            <p class="status-meta" id="meta">&nbsp;</p>
+            <ul class="status-list" id="list"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
   <script>
     const W = 'https://groq-chat.shawnpsi.workers.dev';
-    const SITE = 'https://shawnsingh.me';
+    // Each check resolves to true (up) or throws. Everything runs from the
+    // visitor's browser, so a bad connection on their end reads as down.
     const ok = r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r; };
-    // The site is another origin, so the browser hides the status code. A
-    // network error still throws; an opaque response means the server answered.
-    const page = path => () => fetch(SITE + path, { method: 'HEAD', mode: 'no-cors', cache: 'no-store' });
+    const page = path => () => fetch(path, { method: 'HEAD', cache: 'no-store' }).then(ok);
     const health = fetch.bind(null, W + '/health', { cache: 'no-store' });
-    let healthRun;
+    let healthRun;   // one /health call feeds both model rows
     const model = key => async () => {
       const d = await healthRun;
       if (!d[key]) throw new Error(d.groq === 200 ? 'model no longer served' : 'Groq ' + (d.groq || 'unreachable'));
@@ -75,16 +181,9 @@
     const list = document.getElementById('list');
     const rows = CHECKS.map(([name, sub]) => {
       const li = document.createElement('li');
-      li.append(Object.assign(document.createElement('span'), { className: 'dot' }));
-      const label = document.createElement('span');
-      const b = document.createElement('b');
-      const small = document.createElement('small');
-      b.textContent = name;
-      small.textContent = sub;
-      label.append(b, small);
-      const st = Object.assign(document.createElement('span'), { className: 'st' });
-      st.textContent = 'Checking…';
-      li.append(label, st);
+      li.innerHTML = '<span class="dot"></span><span><b></b><small></small></span><span class="st">Checking…</span>';
+      li.querySelector('b').textContent = name;
+      li.querySelector('small').textContent = sub;
       list.append(li);
       return li;
     });
@@ -117,5 +216,34 @@
     run();
     setInterval(run, 60000);
   </script>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <p class="footer__logo">Shawn Singh</p>
+          <p class="footer__tagline">data + design — San Francisco, CA</p>
+        </div>
+        <div class="footer__links">
+          <a href="https://www.linkedin.com/in/shawn-singh-72221a203/" class="footer__link" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="/files/resume.pdf" class="footer__link" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Résumé
+          </a>
+          <a href="mailto:shawn@visuallyrepresented.co" class="footer__link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            shawn@visuallyrepresented.co
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
